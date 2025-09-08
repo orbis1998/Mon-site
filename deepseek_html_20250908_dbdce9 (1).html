@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création de Sites Web Personnels Professionnels</title>
+    <link rel="icon" href="https://i.postimg.cc/Dwmb1RcS/5.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #F9C74F;
+            --blue: #4361EE;
+            --black: #000000;
+            --white: #FFFFFF;
+            --light-bg: #F8F9FA;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            color: var(--black);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.postimg.cc/sXfybGg1/12-20250907-152432-0010.png') center/cover no-repeat;
+            color: var(--white);
+            padding: 2rem 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            color: var(--yellow);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+        
+        .offer-badge {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .countdown {
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .countdown-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.5rem;
+            border-radius: 5px;
+            min-width: 60px;
+        }
+        
+        .countdown-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--yellow);
+            color: var(--black);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn:hover:after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 1;
+            }
+            20% {
+                transform: scale(25, 25);
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(40, 40);
+            }
+        }
+        
+        .btn:hover {
+            background-color: #e6b84a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-blue {
+            background-color: var(--blue);
+            color: var(--white);
+        }
+        
+        .btn-blue:hover {
+            background-color: #3a56d4;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 0;
+            background-color: var(--light-bg);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--blue);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--yellow);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border-top: 4px solid var(--yellow);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .benefit-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 1rem;
+            color: var(--blue);
+        }
+        
+        /* Why Choose Me Section */
+        .why-choose {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+        }
+        
+        .feature.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .feature-icon {
+            background-color: var(--yellow);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            color: var(--black);
+            font-size: 1.5rem;
+        }
+        
+        .feature-content h3 {
+            color: var(--blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 0;
+            background: linear-gradient(to bottom, var(--light-bg), #eef2f7);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .portfolio-item {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 1.5rem;
+            color: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-item-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--blue);
+            opacity: 0.1;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: #495057;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+            border: 3px solid var(--blue);
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-details h4 {
+            color: var(--blue);
+            margin-bottom: 0.2rem;
+        }
+        
+        /* Contact Form */
+        .contact {
+            padding: 5rem 0;
+            background: linear-gradient(to bottom, var(--white), var(--light-bg));
+        }
+        
+        .form-container {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid var(--yellow);
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--blue);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .submit-btn {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--yellow);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--yellow);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--yellow);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .feature {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feature-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Hero Section -->
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Donnez Vie à Votre Présence en Ligne</h1>
+                <p class="hero-subtitle">Des sites web personnels élégants qui captivent votre audience et convertissent vos visiteurs en clients</p>
+                <div class="offer-badge">
+                    Site Professionnel à 45$ - Offre Exclusive
+                </div>
+                <div class="countdown">
+                    Offre valide jusqu'au 20 septembre
+                    <div class="countdown-timer">
+                        <div class="countdown-unit">
+                            <span class="countdown-value" id="days">00</span>
+                            <span class="countdown-label">Jours</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-value" id="hours">00</span>
+                            <span class="countdown-label">Heures</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-value" id="minutes">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-value" id="seconds">00</span>
+                            <span class="countdown-label">Secondes</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="#contact" class="btn">Obtenir mon site maintenant</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Avantages Exceptionnels</h2>
+                <p>Découvrez pourquoi un site web personnel est indispensable pour votre réussite en ligne</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Hébergement Gratuit</h3>
+                    <p>Bénéficiez d'un hébergement performant et sécurisé inclus sans frais supplémentaires.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Contenu Illimité</h3>
+                    <p>Ajoutez autant de pages, images et contenus que vous le souhaitez sans restriction.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Sécurité Maximale</h3>
+                    <p>Protection avancée contre les cybermenaces avec sauvegardes régulières incluses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Me Section -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-title">
+                <h2>Excellence et Expertise</h2>
+                <p>Pourquoi me choisir pour la création de votre site web personnel</p>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Design Sur Mesure</h3>
+                        <p>Chaque site est conçu spécifiquement pour refléter votre identité unique et vos objectifs.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Livraison Rapide</h3>
+                        <p>Votre site web professionnel livré en seulement 3 jours après validation du design.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Optimisation Mobile</h3>
+                        <p>Votre site s'affichera parfaitement sur tous les appareils, des mobiles aux ordinateurs.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Support Personnalisé</h3>
+                        <p>Assistance continue même après la livraison pour toute modification ou question.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Référencement Intégré</h3>
+                        <p>Votre site est optimisé pour les moteurs de recherche dès sa conception.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Sécurité Renforcée</h3>
+                        <p>Protection avancée contre les piratages et sauvegardes automatiques quotidiennes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes Dernières Réalisations</h2>
+                <p>Découvrez une sélection de mes projets les plus récents</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://i.postimg.cc/G2jty1HT/3-20250907-152432-0002.png" alt="Projet Portfolio Personnel">
+                    <div class="portfolio-item-overlay">
+                        <h3>Portfolio Professionnel</h3>
+                        <p>Design élégant pour un photographe indépendant</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://i.postimg.cc/GmgxCLHh/2-20250907-152431-0001.png" alt="Projet Site Vitrine">
+                    <div class="portfolio-item-overlay">
+                        <h3>Site Vitrine d'Entreprise</h3>
+                        <p>Présentation corporate pour une startup innovante</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://i.postimg.cc/Ls7Dz9p0/4-20250907-152432-0003.png" alt="Projet Page de Capture">
+                    <div class="portfolio-item-overlay">
+                        <h3>Page de Capture Optimisée</h3>
+                        <p>Conversion maximale pour un coach en développement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Témoignages Clients</h2>
+                <p>Ce que disent mes clients africains</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Mon site personnel a considérablement augmenté ma crédibilité en tant que consultant. Les clients me contactent directement grâce à la page de capture. Le design reflète parfaitement mon professionnalisme."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://images.unsplash.com/photo-1540569876033-6e5d046a1d77?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client 1">
+                        </div>
+                        <div class="author-details">
+                            <h4>Amara Diallo</h4>
+                            <p>Consultant en Management, Côte d'Ivoire</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Grâce à mon portfolio professionnel, j'ai décroché plusieurs contrats internationaux. L'investissement a été rapidement rentabilisé. Le service après-vente est exceptionnel."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client 2">
+                        </div>
+                        <div class="author-details">
+                            <h4>Fatou Ndiaye</h4>
+                            <p>Photographe Professionnelle, Sénégal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Prêt à Démarrer?</h2>
+                <p>Contactez-moi dès aujourd'hui pour discuter de votre projet</p>
+            </div>
+            <div class="form-container">
+                <h3 class="form-title">Demander un devis gratuit</h3>
+                <form id="contact-form" action="https://formspree.io/f/xkgvkyqj" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Adresse email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Numéro de téléphone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service souhaité</label>
+                            <select id="service" name="service" required>
+                                <option value="">Sélectionnez une option</option>
+                                <option value="site-personnel">Site Personnel</option>
+                                <option value="portfolio">Portfolio Professionnel</option>
+                                <option value="page-capture">Page de Capture</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Décrivez votre projet</label>
+                        <textarea id="message" name="message" placeholder Parlez-moi de vos objectifs, public cible et préférences de design..." required></textarea>
+                    </div>
+                    <div class="submit-btn">
+                        <button type="submit" class="btn btn-blue">Envoyer la demande</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Services Web Professionnels</h3>
+                    <p>Création de sites personnels et portfolios sur mesure pour professionnels et entrepreneurs.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61574953794341" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/aroman_emetshu?igsh=YXd3ejZxNXg4YTho" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/aroman_emetshu?t=jPm7BO7TmJchyhK8YJF-5Q&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/242067458011" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Réalisations</a></li>
+                        <li><a href="#testimonials">Témoignages</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> aromanemetshu@gmail.com</li>
+                        <li><i class="fab fa-whatsapp"></i> +242 06 745 80 11</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Congo</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Services Web Professionnels. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const offerEndDate = new Date('September 20, 2023 23:59:59').getTime();
+            const now = new Date().getTime();
+            const timeRemaining = offerEndDate - now;
+            
+            if (timeRemaining > 0) {
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                document.querySelector('.countdown').innerHTML = "L'offre a expiré";
+            }
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Scroll animations
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.benefit-card, .feature, .testimonial-card');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                
+                if(position.top < window.innerHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+        
+        // Form submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            
+            fetch(this.action, {
+                method: this.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Merci pour votre message ! Je vous recontacterai très rapidement.');
+                    this.reset();
+                } else {
+                    throw new Error('Erreur lors de l\'envoi du message');
+                }
+            })
+            .catch(error => {
+                alert('Une erreur s\'est produite. Veuillez réessayer ou me contacter directement par WhatsApp.');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
