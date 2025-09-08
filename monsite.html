@@ -44,6 +44,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
+            position: relative;
         }
         
         .hero-content {
@@ -51,19 +52,80 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .hero-title {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
             font-weight: 800;
             color: var(--yellow);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .hero-subtitle {
             font-size: 1.5rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             color: var(--white);
+        }
+        
+        .offer-badge {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .countdown {
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .countdown-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.5rem;
+            border-radius: 5px;
+            min-width: 60px;
+        }
+        
+        .countdown-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
         }
         
         .btn {
@@ -80,6 +142,42 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn:hover:after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 1;
+            }
+            20% {
+                transform: scale(25, 25);
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(40, 40);
+            }
         }
         
         .btn:hover {
@@ -112,6 +210,19 @@
             font-size: 2.5rem;
             color: var(--blue);
             margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--yellow);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
         
         .section-title p {
@@ -134,6 +245,13 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
             border-top: 4px solid var(--yellow);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .benefit-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .benefit-card:hover {
@@ -169,6 +287,14 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+        }
+        
+        .feature.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
         
         .feature-icon {
@@ -209,6 +335,11 @@
             position: relative;
             height: 250px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.03);
         }
         
         .portfolio-item img {
@@ -219,7 +350,23 @@
         }
         
         .portfolio-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
+        }
+        
+        .portfolio-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 1.5rem;
+            color: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-item-overlay {
+            transform: translateY(0);
         }
         
         /* Testimonials */
@@ -240,6 +387,14 @@
             padding: 2.5rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .testimonial-card::before {
@@ -430,7 +585,7 @@
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .form-row {
@@ -461,6 +616,14 @@
                 margin-right: 0;
                 margin-bottom: 1rem;
             }
+            
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -469,8 +632,32 @@
     <header>
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Site Web Personnel Professionnel</h1>
-                <p class="hero-subtitle">Créez votre présence en ligne avec un site web élégant qui représente votre personalité et expertise</p>
+                <h1 class="hero-title">Donnez Vie à Votre Présence en Ligne</h1>
+                <p class="hero-subtitle">Des sites web personnels élégants qui captivent votre audience et convertissent vos visiteurs en clients</p>
+                <div class="offer-badge">
+                    Site Professionnel à 45$ - Offre Exclusive
+                </div>
+                <div class="countdown">
+                    Offre valide jusqu'au 20 septembre
+                    <div class="countdown-timer">
+                        <div class="countdown-unit">
+                            <span class="countdown-value" id="days">20</span>
+                            <span class="countdown-label">Jours</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-value" id="hours">10</span>
+                            <span class="countdown-label">Heures</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-value" id="minutes">10</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-value" id="seconds">00</span>
+                            <span class="countdown-label">Secondes</span>
+                        </div>
+                    </div>
+                </div>
                 <a href="#contact" class="btn">Obtenir mon site maintenant</a>
             </div>
         </div>
@@ -480,8 +667,8 @@
     <section class="benefits">
         <div class="container">
             <div class="section-title">
-                <h2>Qu'est-ce que vous bénéficiez</h2>
-                <p>Découvrez les avantages d'avoir un site web personnel professionnel</p>
+                <h2>Avantages Exceptionnels</h2>
+                <p>Découvrez pourquoi un site web personnel est indispensable pour votre réussite en ligne</p>
             </div>
             <div class="benefits-grid">
                 <div class="benefit-card">
@@ -489,21 +676,21 @@
                         <i class="fas fa-server"></i>
                     </div>
                     <h3>Hébergement Gratuit</h3>
-                    <p>Profitez d'un hébergement fiable et sécurisé inclus avec votre site web, sans frais supplémentaires.</p>
+                    <p>Bénéficiez d'un hébergement performant et sécurisé inclus sans frais supplémentaires.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-database"></i>
                     </div>
-                    <h3>Ajout de Données Illimité</h3>
-                    <p>Ajoutez autant de contenu que vous le souhaitez - photos, textes, vidéos - sans restrictions.</p>
+                    <h3>Contenu Illimité</h3>
+                    <p>Ajoutez autant de pages, images et contenus que vous le souhaitez sans restriction.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Sécurité Assurée</h3>
-                    <p>Votre site et les données de vos visiteurs sont protégés par les dernières technologies de sécurité.</p>
+                    <h3>Sécurité Maximale</h3>
+                    <p>Protection avancée contre les cybermenaces avec sauvegardes régulières incluses.</p>
                 </div>
             </div>
         </div>
@@ -513,8 +700,8 @@
     <section class="why-choose">
         <div class="container">
             <div class="section-title">
-                <h2>Pourquoi me choisir</h2>
-                <p>Découvrez les raisons de confier la création de votre site web à un professionnel</p>
+                <h2>Excellence et Expertise</h2>
+                <p>Pourquoi me choisir pour la création de votre site web personnel</p>
             </div>
             <div class="features">
                 <div class="feature">
@@ -522,8 +709,8 @@
                         <i class="fas fa-paint-brush"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>Design Personnalisé</h3>
-                        <p>Chaque site est unique et conçu spécialement pour refléter votre personalité et votre domaine d'activité.</p>
+                        <h3>Design Sur Mesure</h3>
+                        <p>Chaque site est conçu spécifiquement pour refléter votre identité unique et vos objectifs.</p>
                     </div>
                 </div>
                 <div class="feature">
@@ -532,7 +719,7 @@
                     </div>
                     <div class="feature-content">
                         <h3>Livraison Rapide</h3>
-                        <p>Votre site web est livré en seulement 3 jours ouvrables après validation du design.</p>
+                        <p>Votre site web professionnel livré en seulement 3 jours après validation du design.</p>
                     </div>
                 </div>
                 <div class="feature">
@@ -540,8 +727,8 @@
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>Compatible Mobile</h3>
-                        <p>Votre site s'affichera parfaitement sur tous les appareils: téléphones, tablettes et ordinateurs.</p>
+                        <h3>Optimisation Mobile</h3>
+                        <p>Votre site s'affichera parfaitement sur tous les appareils, des mobiles aux ordinateurs.</p>
                     </div>
                 </div>
                 <div class="feature">
@@ -549,8 +736,8 @@
                         <i class="fas fa-headset"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>Support Continu</h3>
-                        <p>Je reste disponible pour toute modification ou assistance même après la livraison du site.</p>
+                        <h3>Support Personnalisé</h3>
+                        <p>Assistance continue même après la livraison pour toute modification ou question.</p>
                     </div>
                 </div>
                 <div class="feature">
@@ -558,8 +745,8 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>Optimisation SEO</h3>
-                        <p>Votre site est optimisé pour les moteurs de recherche pour augmenter votre visibilité en ligne.</p>
+                        <h3>Référencement Intégré</h3>
+                        <p>Votre site est optimisé pour les moteurs de recherche dès sa conception.</p>
                     </div>
                 </div>
                 <div class="feature">
@@ -568,7 +755,7 @@
                     </div>
                     <div class="feature-content">
                         <h3>Sécurité Renforcée</h3>
-                        <p>Protection avancée contre les piratages et sauvegardes régulières de votre site.</p>
+                        <p>Protection avancée contre les piratages et sauvegardes automatiques quotidiennes.</p>
                     </div>
                 </div>
             </div>
@@ -579,24 +766,30 @@
     <section class="portfolio">
         <div class="container">
             <div class="section-title">
-                <h2>Mes Réalisations</h2>
-                <p>Découvrez quelques-uns des projets que j'ai réalisés pour mes clients</p>
+                <h2>Mes Dernières Réalisations</h2>
+                <p>Découvrez une sélection de mes projets les plus récents</p>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://i.postimg.cc/G2jty1HT/3-20250907-152432-0002.png" alt="Projet 1">
+                    <img src="https://i.postimg.cc/G2jty1HT/3-20250907-152432-0002.png" alt="Projet Portfolio Personnel">
+                    <div class="portfolio-item-overlay">
+                        <h3>Portfolio Professionnel</h3>
+                        <p>Design élégant pour un photographe indépendant</p>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://i.postimg.cc/GmgxCLHh/2-20250907-152431-0001.png" alt="Projet 2">
+                    <img src="https://i.postimg.cc/GmgxCLHh/2-20250907-152431-0001.png" alt="Projet Site Vitrine">
+                    <div class="portfolio-item-overlay">
+                        <h3>Site Vitrine d'Entreprise</h3>
+                        <p>Présentation corporate pour une startup innovante</p>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://i.postimg.cc/Ls7Dz9p0/4-20250907-152432-0003.png" alt="Projet 3">
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://i.postimg.cc/rmhcTyDj/13-20250907-152432-0011.png" alt="Projet 4">
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://i.postimg.cc/PqjdzRGW/5-20250907-152432-0004.png" alt="Projet 5">
+                    <img src="https://i.postimg.cc/Ls7Dz9p0/4-20250907-152432-0003.png" alt="Projet Page de Capture">
+                    <div class="portfolio-item-overlay">
+                        <h3>Page de Capture Optimisée</h3>
+                        <p>Conversion maximale pour un coach en développement</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -612,7 +805,7 @@
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"Mon site personnel a considérablement augmenté ma crédibilité en tant que consultant. Les clients me contactent directement grâce à la page de capture."</p>
+                        <p>"Mon site personnel a considérablement augmenté ma crédibilité en tant que consultant. Les clients me contactent directement grâce à la page de capture. Le design reflète parfaitement mon professionnalisme."</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-image">
@@ -626,7 +819,7 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"Grâce à mon portfolio professionnel, j'ai décroché plusieurs contrats internationaux. L'investissement a été rapidement rentabilisé."</p>
+                        <p>"Grâce à mon portfolio professionnel, j'ai décroché plusieurs contrats internationaux. L'investissement a été rapidement rentabilisé. Le service après-vente est exceptionnel."</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-image">
@@ -646,8 +839,8 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Contactez-moi</h2>
-                <p>Remplissez le formulaire ci-dessous et je vous recontacterai dans les plus brefs délais</p>
+                <h2>Prêt à Démarrer?</h2>
+                <p>Contactez-moi dès aujourd'hui pour discuter de votre projet</p>
             </div>
             <div class="form-container">
                 <h3 class="form-title">Demander un devis gratuit</h3>
@@ -679,7 +872,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Décrivez votre projet</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <textarea id="message" name="message" placeholder Parlez-moi de vos objectifs, public cible et préférences de design..." required></textarea>
                     </div>
                     <div class="submit-btn">
                         <button type="submit" class="btn btn-blue">Envoyer la demande</button>
@@ -717,6 +910,7 @@
                     <ul class="footer-links">
                         <li><i class="fas fa-envelope"></i> aromanemetshu@gmail.com</li>
                         <li><i class="fab fa-whatsapp"></i> +242 06 745 80 11</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Congo</li>
                     </ul>
                 </div>
             </div>
@@ -727,7 +921,47 @@
     </footer>
 
     <script>
-        // Simple form submission handling
+        // Countdown timer
+        function updateCountdown() {
+            const offerEndDate = new Date('September 20, 2023 23:59:59').getTime();
+            const now = new Date().getTime();
+            const timeRemaining = offerEndDate - now;
+            
+            if (timeRemaining > 0) {
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                document.querySelector('.countdown').innerHTML = "L'offre a expiré";
+            }
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Scroll animations
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.benefit-card, .feature, .testimonial-card');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                
+                if(position.top < window.innerHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+        
+        // Form submission handling
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const formData = new FormData(this);
